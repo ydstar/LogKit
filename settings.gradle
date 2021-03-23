@@ -1,0 +1,3 @@
+include ':log-kit'
+include ':app'
+rootProject.name = "LogKit"
