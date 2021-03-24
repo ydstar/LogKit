@@ -1,4 +1,4 @@
-#LogKit
+# LogKit
 可视化Log
 
 动图演示如下：
@@ -57,37 +57,44 @@ ILogConfig iLogConfig = new ILogConfig() {
                 return parser;
             }
         };
-
-        ILogManager.getInstance().init(iLogConfig, new IConsolePrinter());
+ILogManager.getInstance().init(iLogConfig, new IConsolePrinter());
 ```
 
 在需要打印Log的地方调用
 ```java
-        ILog.v("令狐冲");
-        ILog.d("令狐冲");
-        ILog.i("令狐冲");
-        ILog.w("令狐冲");
-        ILog.e("令狐冲");
-        ILog.a("令狐冲");
+ILog.v("令狐冲");
+ILog.d("令狐冲");
+ILog.i("令狐冲");
+ILog.w("令狐冲");
+ILog.e("令狐冲");
+ILog.a("令狐冲");
+```
+
+```java
+ILog.vt("tag", "风清扬");
+ILog.dt("tag", "风清扬");
+ILog.it("tag", "风清扬");
+ILog.wt("tag", "风清扬");
+ILog.et("tag", "风清扬");
+ILog.at("tag", "风清扬");
 ```
 
 如果需要可视化,则需要在onCreate方法中添加
 ```java
-        mViewPrinter = new IViewPrinter(this);
-        ILogManager.getInstance().addPrinter(mViewPrinter);
-
-        mPrintProvider = mViewPrinter.getViewPrintProvider();
-        mPrintProvider.showFloatingView();
+mViewPrinter = new IViewPrinter(this);
+ILogManager.getInstance().addPrinter(mViewPrinter);
+mPrintProvider = mViewPrinter.getViewPrintProvider();
+mPrintProvider.showFloatingView();
 ```
 
 打开Log悬浮框
 ```java
-    mPrintProvider.showFloatingView();
+mPrintProvider.showFloatingView();
 ```
 
 关闭Log悬浮框
 ```java
-    mPrintProvider.closeFloatingView();
+mPrintProvider.closeFloatingView();
 ```
 
 在onDestroy()中移除
