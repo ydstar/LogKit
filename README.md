@@ -1,14 +1,9 @@
 # LogKit
-可视化Log
-
-动图演示如下：
 
 <img src="https://github.com/ydstar/LogKit/blob/main/preview/show.gif" alt="动图演示效果" width="250px">
 
-
 ## 导入方式
 
-### 添加依赖项
 仅支持`AndroidX`
 ```
 dependencies {
