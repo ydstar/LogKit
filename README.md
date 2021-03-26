@@ -2,6 +2,7 @@
 
 <img src="https://github.com/ydstar/LogKit/blob/main/preview/show.gif" alt="动图演示效果" width="250px">
 
+轻量级日志系统,支持任意类型的数据打印,堆栈的追踪,日志的缓存,日志的可视化等高级功能
 
 ## 导入方式
 
