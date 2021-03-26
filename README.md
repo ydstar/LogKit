@@ -1,7 +1,7 @@
 # LogKit
 
 <img src="https://github.com/ydstar/LogKit/blob/main/preview/show.gif" alt="动图演示效果" width="250px">
-<img src="https://github.com/ydstar/LogKit/blob/main/preview/logcat.png">
+
 
 ## 导入方式
 
@@ -82,6 +82,8 @@ ILog.wt("tag", "风清扬");
 ILog.et("tag", "风清扬");
 ILog.at("tag", "风清扬");
 ```
+
+<img src="https://github.com/ydstar/LogKit/blob/main/preview/logcat.png">
 
 ## 日志可视化
 需要页面中创建可视化打印器IViewPrinter,然后添加到ILogManager中
