@@ -1,6 +1,7 @@
 # LogKit
 
 <img src="https://github.com/ydstar/LogKit/blob/main/preview/show.gif" alt="动图演示效果" width="250px">
+<img src="https://github.com/ydstar/LogKit/blob/main/preview/log.png">
 
 ## 导入方式
 
@@ -73,6 +74,7 @@ ILog.wt("tag", "风清扬");
 ILog.et("tag", "风清扬");
 ILog.at("tag", "风清扬");
 ```
+
 
 如果需要可视化,则需要在onCreate方法中添加
 ```java
