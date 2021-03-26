@@ -91,12 +91,12 @@ ILog.at("tag", "风清扬");
 
 ```java
 IViewPrinter viewPrinter = new IViewPrinter(this);
-ILogManager.getInstance().addPrinter(mViewPrinter);
+ILogManager.getInstance().addPrinter(viewPrinter);
 ```
 
 记得在onDestroy()中移除打印器,要不然会重复打印多次
 ```java
-ILogManager.getInstance().removePrinter(mViewPrinter);
+ILogManager.getInstance().removePrinter(viewPrinter);
 ```
 
 ## IViewPrinter可视化打印器具体方法作用
