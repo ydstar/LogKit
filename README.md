@@ -16,33 +16,40 @@ dependencies {
 在application中初始化
 ```java
 ILogConfig iLogConfig = new ILogConfig() {
+
             @Override
             public String getGlobalTag() {
+                //全局的tag
                 return super.getGlobalTag();
             }
 
             @Override
             public boolean enable() {
+                //iLog是否可用
                 return super.enable();
             }
 
             @Override
             public boolean includeThread() {
+                //是否包含线程信息
                 return true;
             }
 
             @Override
             public int stackTraceDepth() {
+                //堆栈的深度
                 return 0;
             }
 
             @Override
             public ILogPrinter[] printers() {
+                //打印器
                 return super.printers();
             }
 
             @Override
             public JsonParser injectJsonParser() {
+                //外界注入对象的序列化
                 JsonParser parser = new JsonParser() {
                     @Override
                     public String toJson(Object object) {
@@ -53,6 +60,7 @@ ILogConfig iLogConfig = new ILogConfig() {
                 return parser;
             }
         };
+//初始化配置并添加控制台打印器,支持添加多个打印器
 ILogManager.getInstance().init(iLogConfig, new IConsolePrinter());
 ```
 
@@ -75,26 +83,21 @@ ILog.et("tag", "风清扬");
 ILog.at("tag", "风清扬");
 ```
 
+## 日志可视化
+需要页面中创建可视化打印器IViewPrinter,然后添加到ILogManager中
 
-如果需要可视化,则需要在onCreate方法中添加
 ```java
-mViewPrinter = new IViewPrinter(this);
+IViewPrinter viewPrinter = new IViewPrinter(this);
 ILogManager.getInstance().addPrinter(mViewPrinter);
-mPrintProvider = mViewPrinter.getViewPrintProvider();
-mPrintProvider.showFloatingView();
 ```
 
-打开Log悬浮框
-```java
-mPrintProvider.showFloatingView();
-```
-
-关闭Log悬浮框
-```java
-mPrintProvider.closeFloatingView();
-```
-
-在onDestroy()中移除
+记得在onDestroy()中移除打印器,要不然会重复打印多次
 ```java
 ILogManager.getInstance().removePrinter(mViewPrinter);
 ```
+
+## IViewPrinter可视化打印器具体方法作用
+| 方法      |参数或返回值  | 作用  |
+| :-------- | :--------| :--: |
+| showFloatingView| void  |  打开Log悬浮框 |
+| closeFloatingView| void |  关闭Log悬浮框 |
