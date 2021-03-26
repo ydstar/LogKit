@@ -1,7 +1,7 @@
 # LogKit
 
 <img src="https://github.com/ydstar/LogKit/blob/main/preview/show.gif" alt="动图演示效果" width="250px">
-<img src="https://github.com/ydstar/LogKit/blob/main/preview/log.png">
+<img src="https://github.com/ydstar/LogKit/blob/main/preview/logcat.png">
 
 ## 导入方式
 
