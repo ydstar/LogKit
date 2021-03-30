@@ -36,7 +36,7 @@ public class LogAdapter extends RecyclerView.Adapter<LogAdapter.LogViewHolder> {
     @NonNull
     @Override
     public LogViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = inflater.inflate(R.layout.ilog_item, parent, false);
+        View itemView = inflater.inflate(R.layout.log_kit_item, parent, false);
         return new LogViewHolder(itemView);
     }
 

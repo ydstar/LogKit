@@ -107,7 +107,7 @@ public class LogKit {
      * @param contents
      */
     private static void log(LogConfig config, @LogType.TYPE int type, String tag, Object... contents) {
-        //如果iLog是关闭的,直接return
+        //如果LogKit是关闭的,直接return
         if (!config.enable()) {
             return;
         }

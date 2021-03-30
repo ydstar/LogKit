@@ -21,7 +21,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        LogConfig iLogConfig = new LogConfig() {
+        LogConfig logConfig = new LogConfig() {
             @Override
             public String getGlobalTag() {
                 return super.getGlobalTag();
@@ -60,7 +60,7 @@ public class MyApplication extends Application {
             }
         };
 
-        LogKitManager.getInstance().init(iLogConfig, new ConsolePrinter());
+        LogKitManager.getInstance().init(logConfig, new ConsolePrinter());
 
 
     }
