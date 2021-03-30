@@ -34,31 +34,37 @@ dependencies {
 LogConfig logConfig = new LogConfig() {
             @Override
             public String getGlobalTag() {
+                //全局的tag
                 return super.getGlobalTag();
             }
 
             @Override
             public boolean enable() {
+                 //LogKit是否可用
                 return super.enable();
             }
 
             @Override
             public boolean includeThread() {
+                //是否包含线程信息
                 return true;
             }
 
             @Override
             public int stackTraceDepth() {
+                //堆栈的深度
                 return 0;
             }
 
             @Override
             public LogPrinter[] printers() {
+                //打印器
                 return super.printers();
             }
 
             @Override
             public JsonParser injectJsonParser() {
+                //外界注入对象的序列化
                 JsonParser parser = new JsonParser() {
                     @Override
                     public String toJson(Object object) {
