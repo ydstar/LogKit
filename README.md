@@ -6,6 +6,8 @@ YdKit 是一组功能丰富的 Android 通用组件。
 
 * [LogKit](https://github.com/ydstar/LogKit) — 轻量级的 Android 日志系统。
 * [RestfulKit](https://github.com/ydstar/RestfulKit) — 简洁但不简单的 Android 网络组件库。
+* [StorageKit](https://github.com/ydstar/StorageKit) — 高性能 Android 离线缓存框架。
+* [ExecutorKit](https://github.com/ydstar/ExecutorKit) — 简洁易用的 Android 多线程操作框架。
 * [CrashKit](https://github.com/ydstar/CrashKit) — 简洁易用的 Android Crash日志捕捉组件。
 * [PermissionKit](https://github.com/ydstar/PermissionKit) — 简洁易用的 Android 权限请求组件。
 * [RefreshKit](https://github.com/ydstar/RefreshKit) — 简洁易用的 Android 下拉刷新和上拉加载组件。
