@@ -2,9 +2,8 @@ package com.log.kit;
 
 
 
-import com.log.kit.common.ILogType;
-import com.log.kit.common.IStackTraceUtil;
-import com.log.kit.print.ILogPrinter;
+import com.log.kit.util.StackTraceUtil;
+import com.log.kit.print.LogPrinter;
 
 import java.util.Arrays;
 import java.util.List;
@@ -14,66 +13,66 @@ import java.util.List;
  * Author: 信仰年轻
  * Date: 2020-09-07 17:57
  * Email: hydznsqk@163.com
- * Des: iLog的对外使用类
+ * Des: LogKit的对外使用类
  * 打印堆栈信息
  * File输出
  * 模拟控制台
  */
-public class ILog {
+public class LogKit {
 
     private static final String I_LOG_PACKAGE;
 
     static {
-        String className = ILog.class.getName();
+        String className = LogKit.class.getName();
         I_LOG_PACKAGE = className.substring(0, className.lastIndexOf('.') + 1);
     }
 
     public static void v(Object... contents) {
-        log(ILogType.V, contents);
+        log(LogType.V, contents);
     }
 
     public static void vt(String tag, Object... contents) {
-        log(ILogType.V, tag, contents);
+        log(LogType.V, tag, contents);
     }
 
     public static void d(Object... contents) {
-        log(ILogType.D, contents);
+        log(LogType.D, contents);
     }
 
     public static void dt(String tag, Object... contents) {
-        log(ILogType.D, tag, contents);
+        log(LogType.D, tag, contents);
     }
 
     public static void i(Object... contents) {
-        log(ILogType.I, contents);
+        log(LogType.I, contents);
     }
 
     public static void it(String tag, Object... contents) {
-        log(ILogType.I, tag, contents);
+        log(LogType.I, tag, contents);
     }
 
     public static void w(Object... contents) {
-        log(ILogType.W, contents);
+        log(LogType.W, contents);
     }
 
     public static void wt(String tag, Object... contents) {
-        log(ILogType.W, tag, contents);
+        log(LogType.W, tag, contents);
     }
 
     public static void e(Object... contents) {
-        log(ILogType.E, contents);
+        log(LogType.E, contents);
     }
 
     public static void et(String tag, Object... contents) {
-        log(ILogType.E, tag, contents);
+        log(LogType.E, tag, contents);
     }
 
     public static void a(Object... contents) {
-        log(ILogType.A, contents);
+        log(LogType.A, contents);
     }
 
     public static void at(String tag, Object... contents) {
-        log(ILogType.A, tag, contents);
+        log(LogType.A, tag, contents);
     }
 
     /**
@@ -82,8 +81,8 @@ public class ILog {
      * @param type
      * @param contents
      */
-    private static void log(@ILogType.TYPE int type, Object... contents) {
-        String globalTag = ILogManager.getInstance().getConfig().getGlobalTag();
+    private static void log(@LogType.TYPE int type, Object... contents) {
+        String globalTag = LogKitManager.getInstance().getConfig().getGlobalTag();
         log(type, globalTag, contents);
     }
 
@@ -94,8 +93,8 @@ public class ILog {
      * @param tag
      * @param contents
      */
-    private static void log(@ILogType.TYPE int type, String tag, Object... contents) {
-        ILogConfig config = ILogManager.getInstance().getConfig();
+    private static void log(@LogType.TYPE int type, String tag, Object... contents) {
+        LogConfig config = LogKitManager.getInstance().getConfig();
         log(config, type, tag, contents);
     }
 
@@ -107,7 +106,7 @@ public class ILog {
      * @param tag
      * @param contents
      */
-    private static void log(ILogConfig config, @ILogType.TYPE int type, String tag, Object... contents) {
+    private static void log(LogConfig config, @LogType.TYPE int type, String tag, Object... contents) {
         //如果iLog是关闭的,直接return
         if (!config.enable()) {
             return;
@@ -117,16 +116,16 @@ public class ILog {
         //拼接线程信息
         if (config.includeThread()) {
             //对当前的线程进行信息的格式化
-            String threadInfo = ILogConfig.I_THREAD_FORMATTER.format(Thread.currentThread());
+            String threadInfo = LogConfig.I_THREAD_FORMATTER.format(Thread.currentThread());
             sb.append(threadInfo).append("\n");
         }
 
         //拼接堆栈信息
         if (config.stackTraceDepth() > 0) {
             //获取堆栈信息
-            StackTraceElement[] traceElements = IStackTraceUtil.getCroppedRealStackTrack(new Throwable().getStackTrace(), I_LOG_PACKAGE, config.stackTraceDepth());
+            StackTraceElement[] traceElements = StackTraceUtil.getCroppedRealStackTrack(new Throwable().getStackTrace(), I_LOG_PACKAGE, config.stackTraceDepth());
             //格式化堆栈信息
-            String traceInfo = ILogConfig.I_STACK_TRACE_FORMATTER.format(traceElements);
+            String traceInfo = LogConfig.I_STACK_TRACE_FORMATTER.format(traceElements);
             sb.append(traceInfo).append("\n");
         }
 
@@ -139,12 +138,12 @@ public class ILog {
         sb.append(body);
 
         //拿到初始时候自己定义的打印器,然后进行打印,看是打印到文件,还是控制台,还是文件中
-        List<ILogPrinter> printerList = config.printers() !=null ? Arrays.asList(config.printers()) : ILogManager.getInstance().getPrinters();
+        List<LogPrinter> printerList = config.printers() !=null ? Arrays.asList(config.printers()) : LogKitManager.getInstance().getPrinters();
         if (printerList == null) {
             return;
         }
         //打印log
-        for(ILogPrinter printer:printerList){
+        for(LogPrinter printer:printerList){
             printer.print(config,type,tag,sb.toString());
         }
 
@@ -156,7 +155,7 @@ public class ILog {
      * @param config
      * @return
      */
-    private static String parseBody(Object[] contents, ILogConfig config) {
+    private static String parseBody(Object[] contents, LogConfig config) {
         //如果传进来的对象解析json不为空
         if(config.injectJsonParser()!=null){
             if(contents.length==1 && contents[0] instanceof String){

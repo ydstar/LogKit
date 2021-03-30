@@ -15,7 +15,7 @@ import androidx.annotation.NonNull;
  * Email: hydznsqk@163.com
  * Des:
  */
-public class IDisplayUtil {
+public class DisplayUtil {
     public static int dp2px(float dp, Resources resources) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, resources.getDisplayMetrics());
     }

@@ -6,7 +6,7 @@ package com.log.kit.formatter;
  * Email: hydznsqk@163.com
  * Des: 线程信息格式化
  */
-public class IThreadFormatter implements ILogFormatter<Thread> {
+public class ThreadFormatter implements LogFormatter<Thread> {
 
     @Override
     public String format(Thread data) {

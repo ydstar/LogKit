@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.log.kit.R;
-import com.log.kit.common.ILogType;
+import com.log.kit.LogType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,14 +22,14 @@ import java.util.List;
  * Email: hydznsqk@163.com
  * Des:
  */
-public class ILogAdapter extends RecyclerView.Adapter<ILogAdapter.LogViewHolder> {
+public class LogAdapter extends RecyclerView.Adapter<LogAdapter.LogViewHolder> {
 
 
     private LayoutInflater inflater;
 
-    private List<ILogModel> mLogs = new ArrayList<>();
+    private List<LogModel> mLogs = new ArrayList<>();
 
-    public ILogAdapter(LayoutInflater inflater) {
+    public LogAdapter(LayoutInflater inflater) {
         this.inflater = inflater;
     }
 
@@ -42,7 +42,7 @@ public class ILogAdapter extends RecyclerView.Adapter<ILogAdapter.LogViewHolder>
 
     @Override
     public void onBindViewHolder(LogViewHolder holder, int position) {
-        ILogModel logItem = mLogs.get(position);
+        LogModel logItem = mLogs.get(position);
 
         int color = getHighlightColor(logItem.level);
         holder.tagView.setTextColor(color);
@@ -61,22 +61,22 @@ public class ILogAdapter extends RecyclerView.Adapter<ILogAdapter.LogViewHolder>
     private int getHighlightColor(int logLevel) {
         int highlight;
         switch (logLevel) {
-            case ILogType.V:
+            case LogType.V:
                 highlight = Color.parseColor("#BBBBBB");
                 break;
-            case ILogType.D:
+            case LogType.D:
                 highlight = Color.parseColor("#0070BB");
                 break;
-            case ILogType.I:
+            case LogType.I:
                 highlight = Color.parseColor("#48BB31");
                 break;
-            case ILogType.W:
+            case LogType.W:
                 highlight = Color.parseColor("#BBBB23");
                 break;
-            case ILogType.E:
+            case LogType.E:
                 highlight = Color.parseColor("#FF0006");
                 break;
-            case ILogType.A:
+            case LogType.A:
             default:
                 highlight = Color.parseColor("#8F0005");
                 break;
@@ -90,7 +90,7 @@ public class ILogAdapter extends RecyclerView.Adapter<ILogAdapter.LogViewHolder>
     }
 
 
-    public void addItem(ILogModel logItem) {
+    public void addItem(LogModel logItem) {
         mLogs.add(logItem);
         notifyItemInserted(mLogs.size() - 1);
     }

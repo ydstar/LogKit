@@ -1,17 +1,17 @@
 package com.log.kit;
 
 
-import com.log.kit.formatter.IStackTraceFormatter;
-import com.log.kit.formatter.IThreadFormatter;
-import com.log.kit.print.ILogPrinter;
+import com.log.kit.formatter.StackTraceFormatter;
+import com.log.kit.formatter.ThreadFormatter;
+import com.log.kit.print.LogPrinter;
 
 /**
  * Author: 信仰年轻
  * Date: 2020-09-07 18:05
  * Email: hydznsqk@163.com
- * Des: iLog的配置
+ * Des: LogKit的配置
  */
-public abstract class ILogConfig {
+public abstract class LogConfig {
 
 
     //每行的最大长度为512
@@ -21,10 +21,10 @@ public abstract class ILogConfig {
     private int STACK_TRACE_DEPTH = 5;
 
     //线程信息格式化对象
-    public static IThreadFormatter I_THREAD_FORMATTER = new IThreadFormatter();
+    public static ThreadFormatter I_THREAD_FORMATTER = new ThreadFormatter();
 
     //堆栈信息格式化对象
-    public static IStackTraceFormatter I_STACK_TRACE_FORMATTER = new IStackTraceFormatter();
+    public static StackTraceFormatter I_STACK_TRACE_FORMATTER = new StackTraceFormatter();
 
     /**
      * 全局的tag
@@ -32,11 +32,11 @@ public abstract class ILogConfig {
      * @return
      */
     public String getGlobalTag() {
-        return "iLog";
+        return "LogKit";
     }
 
     /**
-     * iLog是否可用
+     * LogKit是否可用
      *
      * @return
      */
@@ -67,7 +67,7 @@ public abstract class ILogConfig {
      *
      * @return
      */
-    public ILogPrinter[] printers() {
+    public LogPrinter[] printers() {
         return null;
     }
 

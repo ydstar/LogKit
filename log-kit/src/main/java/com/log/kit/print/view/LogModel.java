@@ -2,7 +2,7 @@ package com.log.kit.print.view;
 
 
 
-import com.log.kit.common.ILogType;
+import com.log.kit.LogType;
 
 import java.text.SimpleDateFormat;
 import java.util.Locale;
@@ -13,7 +13,7 @@ import java.util.Locale;
  * Email: hydznsqk@163.com
  * Des:
  */
-public class ILogModel {
+public class LogModel {
 
     private static SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd HH:mm:ss", Locale.CHINA);
     public long timeMillis;
@@ -21,7 +21,7 @@ public class ILogModel {
     public String tag;
     public String log;
 
-    public ILogModel(long timeMillis, int level, String tag, String log) {
+    public LogModel(long timeMillis, int level, String tag, String log) {
         this.timeMillis = timeMillis;
         this.level = level;
         this.tag = tag;
@@ -38,17 +38,17 @@ public class ILogModel {
 
     private String convertLevel(int level){
         switch (level){
-            case ILogType.V:
+            case LogType.V:
               return "V";
-            case ILogType.D:
+            case LogType.D:
                 return "D";
-            case ILogType.I:
+            case LogType.I:
                 return "I";
-            case ILogType.W:
+            case LogType.W:
                 return "W";
-            case ILogType.E:
+            case LogType.E:
                 return "E";
-            case ILogType.A:
+            case LogType.A:
             default:
                 return "A";
         }

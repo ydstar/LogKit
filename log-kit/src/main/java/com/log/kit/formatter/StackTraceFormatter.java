@@ -4,9 +4,9 @@ package com.log.kit.formatter;
  * Author: 信仰年轻
  * Date: 2020-09-08 15:27
  * Email: hydznsqk@163.com
- * Des: 堆栈信息格式化
+ * Des: LogKit堆栈信息格式化
  */
-public class IStackTraceFormatter implements ILogFormatter<StackTraceElement[]> {
+public class StackTraceFormatter implements LogFormatter<StackTraceElement[]> {
 
     @Override
     public String format(StackTraceElement[] stackTrace) {

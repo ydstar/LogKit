@@ -3,10 +3,10 @@ package com.example.logkit;
 import android.app.Application;
 
 import com.google.gson.Gson;
-import com.log.kit.ILogConfig;
-import com.log.kit.ILogManager;
-import com.log.kit.print.ILogPrinter;
-import com.log.kit.print.console.IConsolePrinter;
+import com.log.kit.LogConfig;
+import com.log.kit.LogKitManager;
+import com.log.kit.print.LogPrinter;
+import com.log.kit.print.console.ConsolePrinter;
 
 
 /**
@@ -21,7 +21,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        ILogConfig iLogConfig = new ILogConfig() {
+        LogConfig iLogConfig = new LogConfig() {
             @Override
             public String getGlobalTag() {
                 return super.getGlobalTag();
@@ -43,7 +43,7 @@ public class MyApplication extends Application {
             }
 
             @Override
-            public ILogPrinter[] printers() {
+            public LogPrinter[] printers() {
                 return super.printers();
             }
 
@@ -60,7 +60,7 @@ public class MyApplication extends Application {
             }
         };
 
-        ILogManager.getInstance().init(iLogConfig, new IConsolePrinter());
+        LogKitManager.getInstance().init(iLogConfig, new ConsolePrinter());
 
 
     }

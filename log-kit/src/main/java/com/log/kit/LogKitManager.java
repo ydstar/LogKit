@@ -3,7 +3,7 @@ package com.log.kit;
 import androidx.annotation.NonNull;
 
 
-import com.log.kit.print.ILogPrinter;
+import com.log.kit.print.LogPrinter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,21 +14,21 @@ import java.util.List;
  * Author: 信仰年轻
  * Date: 2020-09-07 18:05
  * Email: hydznsqk@163.com
- * Des: iLog的管理类
+ * Des: LogKit的管理类
  */
-public class ILogManager {
+public class LogKitManager {
 
-    private ILogConfig mConfig;
-    private List<ILogPrinter> mPrinters = new ArrayList<>();
+    private LogConfig mConfig;
+    private List<LogPrinter> mPrinters = new ArrayList<>();
 
-    private ILogManager() {
+    private LogKitManager() {
     }
 
     public static class SingleHolder {
-        public static volatile ILogManager instance = new ILogManager();
+        public static volatile LogKitManager instance = new LogKitManager();
     }
 
-    public static ILogManager getInstance() {
+    public static LogKitManager getInstance() {
         return SingleHolder.instance;
     }
 
@@ -37,27 +37,27 @@ public class ILogManager {
      * @param config
      * @param printers
      */
-    public void init(@NonNull ILogConfig config, ILogPrinter... printers) {
+    public void init(@NonNull LogConfig config, LogPrinter... printers) {
         this.mConfig = config;
         this.mPrinters.addAll(Arrays.asList(printers));
     }
 
-    public ILogConfig getConfig() {
+    public LogConfig getConfig() {
         check();
         return mConfig;
     }
 
-    public List<ILogPrinter> getPrinters() {
+    public List<LogPrinter> getPrinters() {
         check();
         return mPrinters;
     }
 
-    public void addPrinter(ILogPrinter printer) {
+    public void addPrinter(LogPrinter printer) {
         check();
         mPrinters.add(printer);
     }
 
-    public void removePrinter(ILogPrinter printer) {
+    public void removePrinter(LogPrinter printer) {
         check();
         if (mPrinters != null) {
             mPrinters.remove(printer);
@@ -66,7 +66,7 @@ public class ILogManager {
 
     private void check() {
         if (mConfig == null || mPrinters == null) {
-            throw new RuntimeException("ILogManager 的 init 还未初始化");
+            throw new RuntimeException("LogKitManager 的 init 还未初始化");
         }
     }
 

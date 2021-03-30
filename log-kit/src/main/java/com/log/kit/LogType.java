@@ -1,4 +1,4 @@
-package com.log.kit.common;
+package com.log.kit;
 
 import android.util.Log;
 
@@ -11,9 +11,9 @@ import java.lang.annotation.RetentionPolicy;
  * Author: 信仰年轻
  * Date: 2020-09-08 15:14
  * Email: hydznsqk@163.com
- * Des: iLog的日志类型
+ * Des: LogKit的日志类型
  */
-public class ILogType {
+public class LogType {
 
     @IntDef({V, D, I, W, E, A})
     @Retention(RetentionPolicy.SOURCE)

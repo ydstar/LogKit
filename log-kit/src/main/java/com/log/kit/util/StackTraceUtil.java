@@ -1,12 +1,12 @@
-package com.log.kit.common;
+package com.log.kit.util;
 
 /**
  * Author: 信仰年轻
  * Date: 2020-09-08 15:20
  * Email: hydznsqk@163.com
- * Des: iLog的堆栈工具类
+ * Des: LogKit的堆栈工具类
  */
-public class IStackTraceUtil {
+public class StackTraceUtil {
 
     /**
      * Get the real stack trace and then crop it with a max depth.

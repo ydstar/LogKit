@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.log.kit.util.IDisplayUtil;
+import com.log.kit.util.DisplayUtil;
 
 
 /**
@@ -18,7 +18,7 @@ import com.log.kit.util.IDisplayUtil;
  * Email: hydznsqk@163.com
  * Des:
  */
-public class IViewPrintProvider {
+public class ViewPrintProvider {
 
     private static final String TAG_FLOATING_VIEW = "TAG_FLOATING_VIEW";
     private static final String TAG_LOG_VIEW = "TAG_LOG_VIEW";
@@ -28,9 +28,9 @@ public class IViewPrintProvider {
     private boolean mIsOpen;
     private FrameLayout mLogView;
     private RecyclerView mRecyclerView;
-    private ILogAdapter mAdapter;
+    private LogAdapter mAdapter;
 
-    public IViewPrintProvider(FrameLayout rootView, RecyclerView recyclerView, ILogAdapter adapter) {
+    public ViewPrintProvider(FrameLayout rootView, RecyclerView recyclerView, LogAdapter adapter) {
         this.mRootView = rootView;
         this.mRecyclerView = recyclerView;
         this.mAdapter = adapter;
@@ -54,7 +54,7 @@ public class IViewPrintProvider {
             floatingView.setTag(TAG_FLOATING_VIEW);
             floatingView.setBackgroundColor(Color.BLACK);
             floatingView.setAlpha(0.8f);
-            params.bottomMargin = IDisplayUtil.dp2px(100, mRootView.getResources());
+            params.bottomMargin = DisplayUtil.dp2px(100, mRootView.getResources());
 
             mRootView.addView(getFloatingView(), params);
         }
@@ -80,7 +80,7 @@ public class IViewPrintProvider {
                 }
             }
         });
-        textView.setText("iLog");
+        textView.setText("LogKit");
         return mFloatingView = textView;
     }
 
@@ -91,7 +91,7 @@ public class IViewPrintProvider {
         if (mRootView.findViewWithTag(TAG_LOG_VIEW) != null) {
             return;
         }
-        FrameLayout.LayoutParams params =new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, IDisplayUtil.dp2px(260, mRootView.getResources()));
+        FrameLayout.LayoutParams params =new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DisplayUtil.dp2px(260, mRootView.getResources()));
         params.gravity = Gravity.BOTTOM;
         View logView = getLogView();
         logView.setTag(TAG_LOG_VIEW);
@@ -133,7 +133,7 @@ public class IViewPrintProvider {
         FrameLayout.LayoutParams params2 =
                 new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         params2.gravity = Gravity.END;
-        params2.topMargin = IDisplayUtil.dp2px(30, mRootView.getResources());
+        params2.topMargin = DisplayUtil.dp2px(30, mRootView.getResources());
         TextView clearView = new TextView(mRootView.getContext());
         clearView.setOnClickListener(new View.OnClickListener() {
             @Override

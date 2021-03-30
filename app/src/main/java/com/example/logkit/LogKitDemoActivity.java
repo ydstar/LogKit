@@ -5,41 +5,42 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.log.kit.ILog;
-import com.log.kit.ILogManager;
-import com.log.kit.print.view.IViewPrintProvider;
-import com.log.kit.print.view.IViewPrinter;
+import com.log.kit.LogKit;
+import com.log.kit.LogKitManager;
+import com.log.kit.print.view.ViewPrintProvider;
+import com.log.kit.print.view.ViewPrinter;
+
 
 public class LogKitDemoActivity extends AppCompatActivity {
-    private IViewPrinter mViewPrinter;
-    private IViewPrintProvider mPrintProvider;
+    private ViewPrinter mViewPrinter;
+    private ViewPrintProvider mPrintProvider;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_kit_demo);
-        mViewPrinter = new IViewPrinter(this);
-        ILogManager.getInstance().addPrinter(mViewPrinter);
+        mViewPrinter = new ViewPrinter(this);
+        LogKitManager.getInstance().addPrinter(mViewPrinter);
 
         mPrintProvider = mViewPrinter.getViewPrintProvider();
         mPrintProvider.showFloatingView();
     }
 
     public void onClickPrint(View view){
-        ILog.v("令狐冲");
-        ILog.d("令狐冲");
-        ILog.i("令狐冲");
-        ILog.w("令狐冲");
-        ILog.e("令狐冲");
-        ILog.a("令狐冲");
+        LogKit.v("令狐冲");
+        LogKit.d("令狐冲");
+        LogKit.i("令狐冲");
+        LogKit.w("令狐冲");
+        LogKit.e("令狐冲");
+        LogKit.a("令狐冲");
 
     }
     public void onClickViewPrint(View view){
-        ILog.vt("tag", "风清扬");
-        ILog.dt("tag", "风清扬");
-        ILog.it("tag", "风清扬");
-        ILog.wt("tag", "风清扬");
-        ILog.et("tag", "风清扬");
-        ILog.at("tag", "风清扬");
+        LogKit.vt("tag", "风清扬");
+        LogKit.dt("tag", "风清扬");
+        LogKit.it("tag", "风清扬");
+        LogKit.wt("tag", "风清扬");
+        LogKit.et("tag", "风清扬");
+        LogKit.at("tag", "风清扬");
     }
 
     public void open(View view){
@@ -52,7 +53,7 @@ public class LogKitDemoActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        ILogManager.getInstance().removePrinter(mViewPrinter);
+        LogKitManager.getInstance().removePrinter(mViewPrinter);
         super.onDestroy();
 
     }
