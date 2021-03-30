@@ -10,7 +10,7 @@ YdKit 是一组功能丰富的 Android 通用组件。
 * [PermissionKit](https://github.com/ydstar/PermissionKit) — 简洁易用的 Android 权限请求组件。
 * [RefreshKit](https://github.com/ydstar/RefreshKit) — 简洁易用的 Android 下拉刷新和上拉加载组件。
 * [AdapterKit](https://github.com/ydstar/AdapterKit) — 简洁易用的 Android 列表组件。
-* [BannerKit](https://github.com/ydstar/BannerKit) — 简洁易用的 Android 下拉刷新和上拉加载组件。
+* [BannerKit](https://github.com/ydstar/BannerKit) — 简洁易用的 Android 无限轮播图组件。
 * [TabBottomKit](https://github.com/ydstar/TabBottomKit) — 简洁易用的 Android 底部导航组件。
 
 ## 效果预览
