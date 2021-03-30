@@ -36,6 +36,6 @@ dependencies {
 
     implementation 'com.google.code.gson:gson:2.8.6'
 
-    implementation project(path: ':log-kit')
-//    implementation 'com.android.ydkit:log-kit:1.0.0'
+//    implementation project(path: ':log-kit')
+    implementation 'com.android.ydkit:log-kit:1.0.1'
 }
