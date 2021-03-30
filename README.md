@@ -6,12 +6,12 @@ YdKit 是一组功能丰富的 Android 通用组件。
 
 * [LogKit](https://github.com/ydstar/LogKit) — 轻量级的 Android 日志系统。
 * [RestfulKit](https://github.com/ydstar/RestfulKit) — 简洁但不简单的 Android 网络组件库。
-* [CrashKit](https://github.com/ydstar/CrashKit) — 简单易用的 Android Crash日志捕捉组件。
-* [PermissionKit](https://github.com/ydstar/PermissionKit) — 简单易用的 Android 权限请求组件。
-* [RefreshKit](https://github.com/ydstar/RefreshKit) — 简单易用的 Android 下拉刷新和上拉加载组件。
-* [AdapterKit](https://github.com/ydstar/AdapterKit) — 简单易用的 Android 列表组件。
-* [BannerKit](https://github.com/ydstar/BannerKit) — 简单易用的 Android 下拉刷新和上拉加载组件。
-* [TabBottomKit](https://github.com/ydstar/TabBottomKit) — 简单易用的 Android 底部导航组件。
+* [CrashKit](https://github.com/ydstar/CrashKit) — 简洁易用的 Android Crash日志捕捉组件。
+* [PermissionKit](https://github.com/ydstar/PermissionKit) — 简洁易用的 Android 权限请求组件。
+* [RefreshKit](https://github.com/ydstar/RefreshKit) — 简洁易用的 Android 下拉刷新和上拉加载组件。
+* [AdapterKit](https://github.com/ydstar/AdapterKit) — 简洁易用的 Android 列表组件。
+* [BannerKit](https://github.com/ydstar/BannerKit) — 简洁易用的 Android 下拉刷新和上拉加载组件。
+* [TabBottomKit](https://github.com/ydstar/TabBottomKit) — 简洁易用的 Android 底部导航组件。
 
 ## 效果预览
 
