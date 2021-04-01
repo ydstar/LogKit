@@ -118,7 +118,7 @@ LogKitManager.getInstance().removePrinter(viewPrinter);
 ```
 
 ## ViewPrinter可视化打印器具体方法作用
-| 方法      |参数或返回值  | 作用  |
+| 方法      |返回值  | 作用  |
 | :-------- | :--------| :--: |
 | showFloatingView| void  |  打开Log悬浮框 |
 | closeFloatingView| void |  关闭Log悬浮框 |
