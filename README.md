@@ -125,7 +125,6 @@ LogKitManager.getInstance().removePrinter(viewPrinter);
 
 
 
-
 ## License
 ```text
 Copyright [2021] [ydStar]
